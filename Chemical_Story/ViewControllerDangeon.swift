@@ -131,16 +131,7 @@ class ViewControllerDangeon: UIViewController {
             deta.isHidden = false
             deta.text = "[鉄(Fe)の壁]\n加熱による溶解は不可。\nイオン化傾向から鉄を溶かせ、かつ酸化力が可能な限り低い水溶液を錬成せよ"
         }
-        if(num==4){
-            one.isHidden = false
-        }
-        if(num==5){
-            one.isHidden = true
-            two.isHidden = false
-        }
-        if(num==6){
-            two.isHidden = true
-        }
+
         if(num==11){
             name.text = "レオナルド"
             serif.text = "壁が溶けたぞ！\nそれにしてもこんな環境で化合物の性質を持つものをその場で錬成·····\n君はいったい····。"
@@ -217,17 +208,7 @@ class ViewControllerDangeon: UIViewController {
             kazu2.text = "?"
             deta.text = "[水酸化ナトリウム水溶液]\nアルカリ（塩基）性の水溶液。\nタンパク質を溶かす性質があるため人体に有害。\n適当な酸性の水溶液と反応させ、中和せよ。"
         }
-        if(num==15){
-            one.isHidden = false
-        }
-        if(num==16){
-            one.isHidden = true
-            two.isHidden = false
-        }
-        if(num==17){
-            two.isHidden = true
-            
-        }
+
         if(num==21){
             name.text = "レオナルド"
             serif.text = "よし！水酸化ナトリウムに塩酸が反応して塩と水に変わった！\nこれで進めるぞ！"
@@ -371,18 +352,61 @@ class ViewControllerDangeon: UIViewController {
         if(num<=3){
             num = 3
         }
+        if(num==4){
+            one.isHidden = false
+        }
+        if(num==5){
+            one.isHidden = true
+            two.isHidden = false
+        }
+        if(num==6){
+            two.isHidden = true
+        }
         if(num>=11&&num<=14){
             num = 14
+        }
+        if(num==15){
+            one.isHidden = false
+        }
+        if(num==16){
+            one.isHidden = true
+            two.isHidden = false
+        }
+        if(num==17){
+            two.isHidden = true
+            
         }
     }
     @IBAction func countup(_ sender: Any) {
         num = num + 1
+        if(num==4){
+            one.isHidden = false
+        }
+        if(num==5){
+            one.isHidden = true
+            two.isHidden = false
+        }
+        if(num==6){
+            two.isHidden = true
+        }
         if(num>=6&&num<=10){
             num = 6
+        }
+        if(num==15){
+            one.isHidden = false
+        }
+        if(num==16){
+            one.isHidden = true
+            two.isHidden = false
+        }
+        if(num==17){
+            two.isHidden = true
+            
         }
         if(num>=17&&num<=20){
             num = 17
         }
+        
     }
     @IBAction func h(_ sender: Any) {
         if(num==4||num==15){
@@ -458,20 +482,20 @@ class ViewControllerDangeon: UIViewController {
     }
     @IBAction func kagou(_ sender: Any) {
         if((genso1.text=="H"&&genso2.text=="Cl"&&num==6)||(genso1.text=="Cl"&&genso2.text=="H"&&num==6)){
-            answer.text = "HCl"
+            answer.text = "2HCl"
             keisu2.text = "1"
             keisu1.text = "1"
-            kazu1.text = "1"
-            kazu2.text = "1"
+            kazu1.text = "2"
+            kazu2.text = "2"
             num = 10
             go.isHidden = false
         }
         if((genso1.text=="H"&&genso2.text=="Cl"&&num==17)||(genso1.text=="Cl"&&genso2.text=="H"&&num==17)){
-            answer.text = "HCl"
+            answer.text = "2HCl"
             keisu2.text = "1"
             keisu1.text = "1"
-            kazu1.text = "1"
-            kazu2.text = "1"
+            kazu1.text = "2"
+            kazu2.text = "2"
             num = 20
             go.isHidden = false
         }
