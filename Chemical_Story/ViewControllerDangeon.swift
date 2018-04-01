@@ -26,22 +26,24 @@ class ViewControllerDangeon: UIViewController {
     @IBOutlet weak var rl: UIButton!
     @IBOutlet weak var go: UIButton!
     @IBOutlet weak var three_three: UIImageView!
-    
-    @IBOutlet weak var keisu1: UILabel!
-    @IBOutlet weak var keisu2: UILabel!
+
+    @IBOutlet weak var kagou: UILabel!
     @IBOutlet weak var genso1: UILabel!
     @IBOutlet weak var genso2: UILabel!
-    @IBOutlet weak var kazu1: UILabel!
-    @IBOutlet weak var kazu2: UILabel!
-    @IBOutlet weak var kagou: UIButton!
 
-    @IBOutlet weak var left: UIButton!
-    @IBOutlet weak var right: UIButton!
-    @IBOutlet weak var one: UILabel!
-    @IBOutlet weak var two: UILabel!
+
+    @IBOutlet weak var gameovergo: UIButton!
+    
+    @IBOutlet weak var one: UIImageView!
+    @IBOutlet weak var two: UIImageView!
     @IBOutlet weak var answer: UILabel!
     @IBOutlet weak var plus: UILabel!
     @IBOutlet weak var home: UIButton!
+    
+    @IBOutlet weak var message: UILabel!
+    
+    @IBOutlet weak var back: UIButton!
+    
     
     var num = 0
     
@@ -50,15 +52,9 @@ class ViewControllerDangeon: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        keisu1.isHidden = true
-        keisu2.isHidden = true
-        kazu1.isHidden = true
-        kazu2.isHidden = true
         genso1.isHidden = true
         genso2.isHidden = true
         kagou.isHidden = true
-        left.isHidden = true
-        right.isHidden = true
         one.isHidden = true
         two.isHidden = true
         answer.isHidden = true
@@ -74,18 +70,28 @@ class ViewControllerDangeon: UIViewController {
         ml.isHidden = true
         rl.isHidden = true
         deta.isHidden = true
+        deta.layer.borderWidth = 1.0
+        deta.layer.borderColor = UIColor.gray.cgColor
+        deta.layer.cornerRadius = 6.0
 
         serif.isHidden = true
+        serif.layer.borderWidth = 1.0
+        serif.layer.borderColor = UIColor.gray.cgColor
+        serif.layer.cornerRadius = 6.0
         serif.isEditable = false
         
         three_three.isHidden = true
         name.isHidden = true
-        
-        
+        name.layer.borderWidth = 1.0
+        name.layer.borderColor = UIColor.gray.cgColor
+        name.layer.cornerRadius = 6.0
+        message.isHidden = true
         question.isHidden = true
         
-        
+        gameovergo.isHidden = true
         home.isHidden = true
+        back.isHidden = true
+ 
         // Do any additional setup after loading the view.
     }
     @IBAction func go(_ sender: Any) {
@@ -104,18 +110,11 @@ class ViewControllerDangeon: UIViewController {
         }
         if(num==3){
             name.text = "ミッション"
-            serif.text = "鉄壁を酸化して溶かして進め"
-            go.isHidden = true
+            serif.text = "鉄壁を塩酸を錬成し、酸化により溶かして進め"
             three_three.isHidden = false
-            keisu1.isHidden = false
-            keisu2.isHidden = false
-            kazu1.isHidden = false
-            kazu2.isHidden = false
             genso1.isHidden = false
             genso2.isHidden = false
-            kagou.isHidden = false
-            left.isHidden = false
-            right.isHidden = false
+           kagou.isHidden = false
             answer.isHidden = false
             plus.isHidden = false
             
@@ -129,26 +128,45 @@ class ViewControllerDangeon: UIViewController {
             ml.isHidden = false
             rl.isHidden = false
             deta.isHidden = false
-            deta.text = "[鉄(Fe)の壁]\n加熱による溶解は不可。\nイオン化傾向から鉄を溶かせ、かつ酸化力が可能な限り低い水溶液を錬成せよ"
+            deta.text = "[鉄(Fe)の壁]\n光反応により塩酸を錬成\n必要な環境や割合は無視してよい"
+            one.isHidden = false
+            message.isHidden = false
+            message.text = "一つ目の反応物を選択せよ"
         }
-
+        if(num==4){
+            message.text = "二つ目の反応物を選択せよ"
+            one.isHidden = true
+            two.isHidden = false
+            
+        }
+        if(num==5){
+            message.text = "この組み合わせで錬成しますか？"
+            back.isHidden = false
+            two.isHidden = true
+        }
+        if(num==6){
+            back.isHidden = true
+        if((genso1.text=="H2"&&genso2.text=="Cl2"&&num==6)||(genso1.text=="Cl2"&&genso2.text=="H2"&&num==6)){
+            answer.text = "2HCl"
+            num = 10
+            
+            }
+            else{
+            message.text = "GAME OVER"
+            gameovergo.isHidden = false
+            go.isHidden = true
+           
+            }
+        }
         if(num==11){
             name.text = "レオナルド"
-            serif.text = "壁が溶けたぞ！\nそれにしてもこんな環境で化合物の性質を持つものをその場で錬成·····\n君はいったい····。"
+            serif.text = "壁が溶けたぞ！\nそれにしてもこんな環境で化合物をその場で錬成·····\n君はいったい····。"
             three_three.isHidden = true
-            keisu1.isHidden = true
-            keisu2.isHidden = true
-            kazu1.isHidden = true
-            kazu2.isHidden = true
-            genso1.isHidden = true
-            genso2.isHidden = true
-            kagou.isHidden = true
-            left.isHidden = true
-            right.isHidden = true
+            genso1.text = "Fe"
+            genso2.text = "2HCl"
             one.isHidden = true
             two.isHidden = true
-            answer.isHidden = true
-            plus.isHidden = true
+            answer.text = "FeCl2 + H2"
             
             lh.isHidden = true
             mh.isHidden = true
@@ -161,31 +179,29 @@ class ViewControllerDangeon: UIViewController {
             rl.isHidden = true
             deta.isHidden = true
             question.isHidden = true
+            message.isHidden = true
         }
         if(num==12){
             name.text = "レオナルド"
-            serif.text = "待て！！何かおかしい\n無色透明だが、これは水の壁か？(ジュゥゥゥ）"
-            
+            serif.text = "待て！！何かおかしい\n淡い黄色の液体の壁があるように見える···(ジュゥゥゥ）"
+            genso1.isHidden = true
+            genso2.isHidden = true
+            plus.isHidden = true
+            kagou.isHidden = true
+            answer.isHidden = true
         }
         if(num==13){
             name.text = "レオナルド"
-            serif.text = "痛ッ！この感触···水酸化ナトリウムか！\nダメだ。こんなとこ通ったら体が溶けてしまう。"
+            serif.text = "痛ッ！この感触···塩酸か！\nダメだ。こんなとこ通ったら大火傷してしまう。"
         }
   
         if(num==14){
             name.text = "ミッション"
-            serif.text = "水酸化ナトリウム水溶液の壁を中和して進め。"
-            go.isHidden = true
+            serif.text = "水酸化ナトリウム水溶液を錬成し、壁を中和せよ"
             three_three.isHidden = false
-            keisu1.isHidden = false
-            keisu2.isHidden = false
-            kazu1.isHidden = false
-            kazu2.isHidden = false
             genso1.isHidden = false
             genso2.isHidden = false
             kagou.isHidden = false
-            left.isHidden = false
-            right.isHidden = false
             answer.isHidden = false
             plus.isHidden = false
             
@@ -199,33 +215,58 @@ class ViewControllerDangeon: UIViewController {
             ml.isHidden = false
             rl.isHidden = false
             deta.isHidden = false
-            genso1.text = "元素１"
-            genso2.text = "元素２"
+            genso1.text = "反応物１"
+            genso2.text = "反応物２"
             answer.text = "???"
-            keisu2.text = "?"
-            keisu1.text = "?"
-            kazu1.text = "?"
-            kazu2.text = "?"
-            deta.text = "[水酸化ナトリウム水溶液]\nアルカリ（塩基）性の水溶液。\nタンパク質を溶かす性質があるため人体に有害。\n適当な酸性の水溶液と反応させ、中和せよ。"
+            deta.text = "[塩酸(HCl)の壁]\n酸性の水溶液。\n強酸のため人体に有害。\n触れると火傷を起こし、目に入ると最悪、失明の可能性も。"
+            one.isHidden = false
+            message.isHidden = false
+            message.text = "一つ目の反応物を選択せよ"
+            lh.setTitle("Na", for: .normal)
+            mh.setTitle("2Na", for: .normal)
+            rh.setTitle("Na2", for: .normal)
+            lm.setTitle("O2", for: .normal)
+            mm.setTitle("H2", for: .normal)
+            rm.setTitle("H2O", for: .normal)
+            ll.setTitle("2H2O", for: .normal)
+            ml.setTitle("OH", for: .normal)
+            rl.setTitle("2OH", for: .normal)
         }
-
+        if(num==15){
+            message.text = "二つ目の反応物を選択せよ"
+            one.isHidden = true
+            two.isHidden = false
+            
+        }
+        if(num==16){
+            message.text = "この組み合わせで錬成しますか？"
+            back.isHidden = false
+            two.isHidden = true
+        }
+        if(num==17){
+            back.isHidden = true
+        if((genso1.text=="2Na"&&genso2.text=="2H2O"&&num==17)||(genso1.text=="2H2O"&&genso2.text=="2Na"&&num==17)){
+            answer.text = "2NaOH + H2"
+            num = 20
+            
+        }
+        else{
+            message.text = "GAME OVER"
+            gameovergo.isHidden = false
+            go.isHidden = true
+            }
+    }
         if(num==21){
             name.text = "レオナルド"
-            serif.text = "よし！水酸化ナトリウムに塩酸が反応して塩と水に変わった！\nこれで進めるぞ！"
+            serif.text = "よし！水酸化ナトリウムと塩酸が反応して塩と水に変わった！\nこれで進めるぞ！"
             three_three.isHidden = true
-            keisu1.isHidden = true
-            keisu2.isHidden = true
-            kazu1.isHidden = true
-            kazu2.isHidden = true
-            genso1.isHidden = true
-            genso2.isHidden = true
-            kagou.isHidden = true
-            left.isHidden = true
-            right.isHidden = true
+            genso1.text = "NaOH"
+            genso2.text = "HCl"
             one.isHidden = true
             two.isHidden = true
-            answer.isHidden = true
-            plus.isHidden = true
+            answer.text = "NaCl + H2O"
+            message.isHidden = true
+            
             
             lh.isHidden = true
             mh.isHidden = true
@@ -242,6 +283,11 @@ class ViewControllerDangeon: UIViewController {
         if(num==22){
             name.text = "レオナルド"
             serif.text = "止まれ···静かに。\nこの先に僕たちを襲った奴らがいるようだ。"
+            genso1.isHidden = true
+            genso2.isHidden = true
+            answer.isHidden = true
+            plus.isHidden = true
+            kagou.isHidden = true
         }
         if(num==23){
             name.text = "レオナルド"
@@ -255,24 +301,16 @@ class ViewControllerDangeon: UIViewController {
         }
         if(num==25){
             name.text = "レオナルド"
-            serif.text = "これはアンモニアさ。\nまぁ見てな。"
+            serif.text = "これはアンモニアさ。\nまぁ見ていてくれ。"
             
-            keisu1.isHidden = false
-            keisu2.isHidden = false
-            kazu1.isHidden = false
-            kazu2.isHidden = false
             genso1.isHidden = false
             genso2.isHidden = false
             kagou.isHidden = false
             answer.isHidden = false
             plus.isHidden = false
-            genso1.text = "元素１"
-            genso2.text = "元素２"
+            genso1.text = "反応物１"
+            genso2.text = "反応物２"
             answer.text = "???"
-            keisu2.text = "?"
-            keisu1.text = "?"
-            kazu1.text = "?"
-            kazu2.text = "?"
         }
         if(num==26){
             name.text = "レオナルド"
@@ -280,23 +318,13 @@ class ViewControllerDangeon: UIViewController {
             genso1.text = "HCl"
             genso2.text = "NH"
             answer.text = "NH4Cl"
-            keisu2.text = "1"
-            keisu1.text = "1"
-            kazu1.text = "1"
-            kazu2.text = "3"
         }
         if(num==27){
             name.text = "NH4Cl"
             serif.text = "モアモアモア〜"
-            keisu1.isHidden = true
-            keisu2.isHidden = true
-            kazu1.isHidden = true
-            kazu2.isHidden = true
             genso1.isHidden = true
             genso2.isHidden = true
             kagou.isHidden = true
-            left.isHidden = true
-            right.isHidden = true
             one.isHidden = true
             two.isHidden = true
             answer.isHidden = true
@@ -324,15 +352,15 @@ class ViewControllerDangeon: UIViewController {
         }
         if(num==30){
             name.text = "レオナルド"
-            serif.text = "僕たちが燃え死んで、\n壁の隙間から炎の煙が漏れ出てきたと勘違いしてくれたようだ"
+            serif.text = "僕たちが焼死して、\n壁の隙間から煙が漏れ出てきたと勘違いしてくれたようだ。"
         }
         if(num==31){
             name.text = "レオナルド"
-            serif.text = "燃えた時の煙は有毒だからね。\nしばらくここで待機するよ。"
+            serif.text = "塩化アンモニウムは無毒だけど、燃焼による煙は有毒だからね。\nしばらくしたらやつらもここを離れるだろう。"
         }
         if(num==32){
             name.text = ""
-            serif.text = "　　　　　　　　　　　数十分後"
+            serif.text = "　　　　　　　　　　　　　数十分後"
         }
         if(num==33){
             name.text = "レオナルド"
@@ -340,168 +368,167 @@ class ViewControllerDangeon: UIViewController {
         }
         if(num==34){
             name.text = ""
-            serif.text = "　　　　　　　CLEAR!"
+            serif.text = "\n　　         　　　　　　　　        CLEAR!"
             background.image = UIImage(named : "carve.jpg")
             go.isHidden = true
             home.isHidden = false
         }
         
     }
-    @IBAction func countdown(_ sender: Any) {
-        num = num - 1
-        if(num<=3){
+    @IBAction func back(_ sender: Any) {
+        genso1.text = "反応物１"
+        genso2.text = "反応物２"
+        message.text = "一つ目の反応物を選択せよ"
+        one.isHidden = false
+        two.isHidden = true
+        if(num==5){
             num = 3
         }
-        if(num==4){
-            one.isHidden = false
-        }
-        if(num==5){
-            one.isHidden = true
-            two.isHidden = false
-        }
-        if(num==6){
-            two.isHidden = true
-        }
-        if(num>=11&&num<=14){
+        if(num==16){
             num = 14
         }
-        if(num==15){
-            one.isHidden = false
-        }
-        if(num==16){
-            one.isHidden = true
-            two.isHidden = false
-        }
-        if(num==17){
-            two.isHidden = true
-            
-        }
     }
-    @IBAction func countup(_ sender: Any) {
-        num = num + 1
-        if(num==4){
-            one.isHidden = false
-        }
-        if(num==5){
-            one.isHidden = true
-            two.isHidden = false
-        }
-        if(num==6){
-            two.isHidden = true
-        }
-        if(num>=6&&num<=10){
-            num = 6
-        }
-        if(num==15){
-            one.isHidden = false
-        }
-        if(num==16){
-            one.isHidden = true
-            two.isHidden = false
-        }
-        if(num==17){
-            two.isHidden = true
-            
-        }
-        if(num>=17&&num<=20){
-            num = 17
-        }
-        
-    }
-    @IBAction func h(_ sender: Any) {
-        if(num==4||num==15){
+    
+    @IBAction func lh(_ sender: Any) {
+        if(num==3){
             genso1.text = "H"
         }
-        if(num==5||num==16){
+        if(num==4){
             genso2.text = "H"
         }
-    }
-    @IBAction func o(_ sender: Any) {
-        if(num==4||num==15){
-            genso1.text = "O"
-        }
-        if(num==5||num==16){
-            genso2.text = "O"
-        }
-    }
-    @IBAction func Na(_ sender: Any) {
-        if(num==4||num==15){
+        
+        if(num==14){
             genso1.text = "Na"
         }
-        if(num==5||num==16){
+        if(num==15){
             genso2.text = "Na"
         }
     }
-    @IBAction func Cl(_ sender: Any) {
-        if(num==4||num==15){
-            genso1.text = "Cl"
+    
+    @IBAction func ch(_ sender: Any) {
+        if(num==3){
+            genso1.text = "H2"
         }
-        if(num==5||num==16){
-            genso2.text = "Cl"
+        if(num==4){
+            genso2.text = "H2"
         }
-    }
-    @IBAction func S(_ sender: Any) {
-        if(num==4||num==15){
-            genso1.text = "S"
+        
+        if(num==14){
+            genso1.text = "2Na"
         }
-        if(num==5||num==16){
-            genso2.text = "S"
-        }
-    }
-    @IBAction func N(_ sender: Any) {
-        if(num==4||num==15){
-            genso1.text = "N"
-        }
-        if(num==5||num==16){
-            genso2.text = "N"
+        if(num==15){
+            genso2.text = "2Na"
         }
     }
-    @IBAction func Ca(_ sender: Any) {
-        if(num==4||num==15){
-            genso1.text = "Ca"
-        }
-        if(num==5||num==16){
-            genso2.text = "Ca"
-        }
-    }
-    @IBAction func F(_ sender: Any) {
-        if(num==4||num==15){
-            genso1.text = "F"
-        }
-        if(num==5||num==16){
-            genso2.text = "F"
-        }
-    }
-    @IBAction func C(_ sender: Any) {
-        if(num==4||num==15){
+    
+    @IBAction func rh(_ sender: Any) {
+        if(num==3){
             genso1.text = "C"
         }
-        if(num==5||num==16){
+        if(num==4){
             genso2.text = "C"
         }
-    }
-    @IBAction func kagou(_ sender: Any) {
-        if((genso1.text=="H"&&genso2.text=="Cl"&&num==6)||(genso1.text=="Cl"&&genso2.text=="H"&&num==6)){
-            answer.text = "2HCl"
-            keisu2.text = "1"
-            keisu1.text = "1"
-            kazu1.text = "2"
-            kazu2.text = "2"
-            num = 10
-            go.isHidden = false
+        
+        if(num==14){
+            genso1.text = "Na2"
         }
-        if((genso1.text=="H"&&genso2.text=="Cl"&&num==17)||(genso1.text=="Cl"&&genso2.text=="H"&&num==17)){
-            answer.text = "2HCl"
-            keisu2.text = "1"
-            keisu1.text = "1"
-            kazu1.text = "2"
-            kazu2.text = "2"
-            num = 20
-            go.isHidden = false
+        if(num==15){
+            genso2.text = "Na2"
+        }
+    }
+    @IBAction func lc(_ sender: Any) {
+        if(num==3){
+            genso1.text = "Cl"
+        }
+        if(num==4){
+            genso2.text = "Cl"
+        }
+        
+        if(num==14){
+            genso1.text = "O2"
+        }
+        if(num==15){
+            genso2.text = "O2"
+        }
+    }
+    @IBAction func cc(_ sender: Any) {
+        if(num==3){
+            genso1.text = "Cl2"
+        }
+        if(num==4){
+            genso2.text = "Cl2"
+        }
+        
+        if(num==14){
+            genso1.text = "H2"
+        }
+        if(num==15){
+            genso2.text = "H2"
         }
     }
     
+    @IBAction func rc(_ sender: Any) {
+        if(num==3){
+            genso1.text = "F2"
+        }
+        if(num==4){
+            genso2.text = "F2"
+        }
+        
+        if(num==14){
+            genso1.text = "H2O"
+        }
+        if(num==15){
+            genso2.text = "H2O"
+        }
+    }
+    @IBAction func ll(_ sender: Any) {
+        if(num==3){
+            genso1.text = "O"
+        }
+        if(num==4){
+            genso2.text = "O"
+        }
+        
+        if(num==14){
+            genso1.text = "2H2O"
+        }
+        if(num==15){
+            genso2.text = "2H2O"
+        }
+    }
+ 
+    @IBAction func cl(_ sender: Any) {
+        if(num==3){
+            genso1.text = "O2"
+        }
+        if(num==4){
+            genso2.text = "O2"
+        }
+        
+        if(num==14){
+            genso1.text = "OH"
+        }
+        if(num==15){
+            genso2.text = "OH"
+        }
+    }
     
+    @IBAction func rl(_ sender: Any) {
+        if(num==3){
+            genso1.text = "Na"
+        }
+        if(num==4){
+            genso2.text = "Na"
+        }
+        
+        if(num==14){
+            genso1.text = "2OH"
+        }
+        if(num==15){
+            genso2.text = "2OH"
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

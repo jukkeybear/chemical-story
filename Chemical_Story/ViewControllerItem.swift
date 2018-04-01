@@ -14,7 +14,6 @@ class ViewControllerItem: UIViewController{
     @IBOutlet weak var genso2: UILabel!
     @IBOutlet weak var compound: UILabel!
     @IBOutlet weak var compound2: UILabel!
-    @IBOutlet weak var comp: UIButton!
     @IBOutlet weak var keisu1: UILabel!
     @IBOutlet weak var keisu2: UILabel!
     @IBOutlet weak var keisu3: UILabel!
@@ -33,16 +32,17 @@ class ViewControllerItem: UIViewController{
     @IBOutlet weak var tenki8: UIButton!
     @IBOutlet weak var tenki9: UIButton!
     
-    @IBOutlet weak var right: UIButton!
-    @IBOutlet weak var left: UIButton!
+    @IBOutlet weak var sign0: UIImageView!
     
-    @IBOutlet weak var sign0: UILabel!
-    @IBOutlet weak var sign00: UILabel!
-    @IBOutlet weak var sign1: UILabel!
-    @IBOutlet weak var sign2: UILabel!
-    @IBOutlet weak var sign3: UILabel!
-    @IBOutlet weak var sign4: UILabel!
+    @IBOutlet weak var sign00: UIImageView!
     
+    @IBOutlet weak var sign1: UIImageView!
+    
+    @IBOutlet weak var sign2: UIImageView!
+    
+    @IBOutlet weak var sign3: UIImageView!
+    
+    @IBOutlet weak var sign4: UIImageView!
     
     @IBOutlet weak var one: UIButton!
     @IBOutlet weak var two: UIButton!
@@ -65,8 +65,16 @@ class ViewControllerItem: UIViewController{
     @IBOutlet weak var nineteen: UIButton!
     @IBOutlet weak var twenty: UIButton!
 
-    @IBOutlet weak var decide: UIButton!
     
+    @IBOutlet weak var mondai: UILabel!
+    @IBOutlet weak var method: UILabel!
+    
+    @IBOutlet weak var decision: UIButton!
+    @IBOutlet weak var gameoverdecition: UIButton!
+    
+    @IBOutlet weak var nextdecision: UIButton!
+    
+    @IBOutlet weak var cancel: UIButton!
     
     var counter = 0
     
@@ -82,19 +90,26 @@ class ViewControllerItem: UIViewController{
         sign2.isHidden = true
         sign3.isHidden = true
         sign4.isHidden = true
-        decide.isHidden = true
+        decision.isHidden = false
+        cancel.isHidden = true
+        gameoverdecition.isHidden = true
+        nextdecision.isHidden = true
+        mondai.text = "H2Oの錬成"
+        method.text = "一つ目の元素を選択してください。"
         
         // Do any additional setup after loading the view.
         print("\(number)")
         print("\(gen)")
          print("\(yn)")
+        
+
     }
     @IBAction func one(_ sender: Any) {
       
         if(counter == 0){
               genso1.text = "H"
         }
-        if(counter == 1){
+        if(counter == 2){
               genso2.text = "H"
         }
     }
@@ -102,7 +117,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "He"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "He"
         }
     }
@@ -110,7 +125,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "Li"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "Li"
         }
     }
@@ -118,7 +133,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "Be"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "Be"
         }
     }
@@ -126,7 +141,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "B"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "B"
         }
     }
@@ -134,7 +149,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "C"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "C"
         }
     }
@@ -142,7 +157,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "N"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "N"
         }
     }
@@ -150,7 +165,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "O"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "O"
         }
     }
@@ -158,7 +173,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "F"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "F"
         }
     }
@@ -166,7 +181,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "Ne"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "Ne"
         }
     }
@@ -174,7 +189,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "Na"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "Na"
         }
     }
@@ -182,7 +197,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "Mg"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "Mg"
         }
     }
@@ -190,7 +205,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "Al"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "Al"
         }
     }
@@ -198,7 +213,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "Si"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "Si"
         }
     }
@@ -206,7 +221,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "P"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "P"
         }
     }
@@ -214,7 +229,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "S"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "S"
         }
     }
@@ -222,7 +237,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "Cl"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "Cl"
         }
     }
@@ -230,7 +245,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "Ar"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "Ar"
         }
     }
@@ -238,7 +253,7 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "K"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "K"
         }
     }
@@ -246,142 +261,70 @@ class ViewControllerItem: UIViewController{
         if(counter == 0){
             genso1.text = "Ca"
         }
-        if(counter == 1){
+        if(counter == 2){
             genso2.text = "Ca"
         }
     }
     
     
-    @IBAction func countup(_ sender: Any) {
-        counter += 1
-        if(counter <= -1){
-            counter = -1
-            sign0.isHidden = true
-            sign00.isHidden = true
-            sign1.isHidden = true
-            sign2.isHidden = true
-            sign3.isHidden = true
-            sign4.isHidden = true
-        }
-        if(counter == 0){
+
+    
+    @IBAction func decision(_ sender: Any) {
+    counter = counter + 1
+        if(counter <= 0){
             sign0.isHidden = false
             sign00.isHidden = true
             sign1.isHidden = true
             sign2.isHidden = true
             sign3.isHidden = true
             sign4.isHidden = true
+            method.text = "一つ目の元素を選択してください"
         }
         if(counter == 1){
-            sign0.isHidden = true
-            sign00.isHidden = false
-            sign1.isHidden = true
-            sign2.isHidden = true
-            sign3.isHidden = true
-            sign4.isHidden = true
-        }
-        if(counter == 2){
-            sign0.isHidden = true
-            sign00.isHidden = true
-            sign1.isHidden = false
-            sign2.isHidden = true
-            sign3.isHidden = true
-            sign4.isHidden = true
-        }
-        if(counter == 3){
             sign0.isHidden = true
             sign00.isHidden = true
             sign1.isHidden = true
             sign2.isHidden = false
             sign3.isHidden = true
             sign4.isHidden = true
-        }
-        if(counter == 4){
-            sign0.isHidden = true
-            sign00.isHidden = true
-            sign1.isHidden = true
-            sign2.isHidden = true
-            sign3.isHidden = false
-            sign4.isHidden = true
-        }
-        if(counter == 5){
-            sign0.isHidden = true
-            sign00.isHidden = true
-            sign1.isHidden = true
-            sign2.isHidden = true
-            sign3.isHidden = true
-            sign4.isHidden = false
-        }
-        if(counter >= 6){
-            counter = 6
-            sign0.isHidden = true
-            sign00.isHidden = true
-            sign1.isHidden = true
-            sign2.isHidden = true
-            sign3.isHidden = true
-            sign4.isHidden = true
-        }
-    }
-    @IBAction func countdown(_ sender: Any) {
-        counter -= 1
-        if(counter <= -1){
-            counter = -1
-            sign0.isHidden = true
-            sign00.isHidden = true
-            sign1.isHidden = true
-            sign2.isHidden = true
-            sign3.isHidden = true
-            sign4.isHidden = true
-        }
-        if(counter == 0){
-            sign0.isHidden = false
-            sign00.isHidden = true
-            sign1.isHidden = true
-            sign2.isHidden = true
-            sign3.isHidden = true
-            sign4.isHidden = true
-        }
-        if(counter == 1){
-            sign0.isHidden = true
-            sign00.isHidden = false
-            sign1.isHidden = true
-            sign2.isHidden = true
-            sign3.isHidden = true
-            sign4.isHidden = true
-        }
-        if(counter == 2){
-            sign0.isHidden = true
-            sign00.isHidden = true
-            sign1.isHidden = false
-            sign2.isHidden = true
-            sign3.isHidden = true
-            sign4.isHidden = true
-        }
-        if(counter == 3){
-            sign0.isHidden = true
-            sign00.isHidden = true
-            sign1.isHidden = true
-            sign2.isHidden = false
-            sign3.isHidden = true
-            sign4.isHidden = true
-        }
-        if(counter == 4){
-            sign0.isHidden = true
-            sign00.isHidden = true
-            sign1.isHidden = true
-            sign2.isHidden = true
-            sign3.isHidden = false
-            sign4.isHidden = true
-        }
-        if(counter == 5){
-            sign0.isHidden = true
-            sign00.isHidden = true
-            sign1.isHidden = true
-            sign2.isHidden = true
-            sign3.isHidden = true
-            sign4.isHidden = false
             
         }
-        if(counter >= 6){
+        if(counter == 2){
+            sign0.isHidden = true
+            sign00.isHidden = false
+            sign1.isHidden = true
+            sign2.isHidden = true
+            sign3.isHidden = true
+            sign4.isHidden = true
+            method.text = "二つ目の元素を選択してください"
+        }
+        if(counter == 3){
+            sign0.isHidden = true
+            sign00.isHidden = true
+            sign1.isHidden = true
+            sign2.isHidden = true
+            sign3.isHidden = true
+            sign4.isHidden = false
+        }
+        if(counter == 4){
+            sign0.isHidden = true
+            sign00.isHidden = true
+            sign1.isHidden = false
+            sign2.isHidden = true
+            sign3.isHidden = true
+            sign4.isHidden = true
+            method.text = "一つ目の元素の係数を選択してください"
+        }
+        if(counter == 5){
+            sign0.isHidden = true
+            sign00.isHidden = true
+            sign1.isHidden = true
+            sign2.isHidden = true
+            sign3.isHidden = false
+            sign4.isHidden = true
+            method.text = "二つ目の元素の係数を選択してください"
+        }
+        if(counter == 6){
             counter = 6
             sign0.isHidden = true
             sign00.isHidden = true
@@ -389,149 +332,183 @@ class ViewControllerItem: UIViewController{
             sign2.isHidden = true
             sign3.isHidden = true
             sign4.isHidden = true
+            method.text = "この組み合わせで錬成しますか？"
+            cancel.isHidden = false
         }
-    }
-    
-    @IBAction func number1(_ sender: Any) {
-        if(counter==2){
-            keisu1.text = "1"
-        }
-        if(counter==3){
-            kazu1.text = "1"
-        }
-        if(counter==4){
-            keisu2.text = "1"
-        }
-        if(counter==5){
-            kazu2.text = "1"
-        }
-    }
-    @IBAction func number2(_ sender: Any) {
-        if(counter==2){
-            keisu1.text = "2"
-        }
-        if(counter==3){
-            kazu1.text = "2"
-        }
-        if(counter==4){
-            keisu2.text = "2"
-        }
-        if(counter==5){
-            kazu2.text = "2"
-        }
-    }
-    @IBAction func number3(_ sender: Any) {
-        if(counter==2){
-            keisu1.text = "3"
-        }
-        if(counter==3){
-            kazu1.text = "3"
-        }
-        if(counter==4){
-            keisu2.text = "3"
-        }
-        if(counter==5){
-            kazu2.text = "3"
-        }
-    }
-    @IBAction func number4(_ sender: Any) {
-        if(counter==2){
-            keisu1.text = "4"
-        }
-        if(counter==3){
-            kazu1.text = "4"
-        }
-        if(counter==4){
-            keisu2.text = "4"
-        }
-        if(counter==5){
-            kazu2.text = "4"
-        }
-    }
-    @IBAction func number5(_ sender: Any) {
-        if(counter==2){
-            keisu1.text = "5"
-        }
-        if(counter==3){
-            kazu1.text = "5"
-        }
-        if(counter==4){
-            keisu2.text = "5"
-        }
-        if(counter==5){
-            kazu2.text = "5"
-        }
-    }
-    @IBAction func number6(_ sender: Any) {
-        if(counter==2){
-            keisu1.text = "6"
-        }
-        if(counter==3){
-            kazu1.text = "6"
-        }
-        if(counter==4){
-            keisu2.text = "6"
-        }
-        if(counter==5){
-            kazu2.text = "6"
-        }
-    }
-    @IBAction func number7(_ sender: Any) {
-        if(counter==2){
-            keisu1.text = "7"
-        }
-        if(counter==3){
-            kazu1.text = "7"
-        }
-        if(counter==4){
-            keisu2.text = "7"
-        }
-        if(counter==5){
-            kazu2.text = "7"
-        }
-    }
-    @IBAction func number8(_ sender: Any) {
-        if(counter==2){
-            keisu1.text = "8"
-        }
-        if(counter==3){
-            kazu1.text = "8"
-        }
-        if(counter==4){
-            keisu2.text = "8"
-        }
-        if(counter==5){
-            kazu2.text = "8"
-        }
-    }
-    @IBAction func number9(_ sender: Any) {
-        if(counter==2){
-            keisu1.text = "9"
-        }
-        if(counter==3){
-            kazu1.text = "9"
-        }
-        if(counter==4){
-            keisu2.text = "9"
-        }
-        if(counter==5){
-            kazu2.text = "9"
-        }
-    }
-    
-    
-    
-    
-    @IBAction func comp(_ sender: Any) {
+        if(counter>=7){
         if(genso1.text=="H"&&genso2.text=="O"&&keisu1.text=="2"&&keisu2.text=="1"&&kazu1.text=="2"&&kazu2.text=="2"&&number<=89){
             compound.text = "H"
             compound2.text = "O"
             keisu3.text = "2"
             kazu3.text = "2"
-            decide.isHidden = false
+            decision.isHidden = true
+            cancel.isHidden = true
             number = 90
+            nextdecision.isHidden = false
+            }
+        else{
+            method.text = "GAME OVER"
+            gameoverdecition.isHidden = false
+            }
+        }
+
+    }
+    @IBAction func cancel(_ sender: Any) {
+        counter = 0
+        genso1.text = "元素１"
+        genso2.text = "元素２"
+        keisu1.text = "?"
+        keisu2.text = "?"
+        keisu3.text = "?"
+        kazu1.text = "?"
+        kazu2.text = "?"
+        kazu3.text = "?"
+        compound.text = "??"
+        compound2.text = "??"
+        if(counter <= 0){
+            sign0.isHidden = false
+            sign00.isHidden = true
+            sign1.isHidden = true
+            sign2.isHidden = true
+            sign3.isHidden = true
+            sign4.isHidden = true
+            method.text = "一つ目の元素を選択してください"
+            cancel.isHidden = true
         }
     }
+    
+    
+    @IBAction func number1(_ sender: Any) {
+        if(counter==1){
+            kazu1.text = "1"
+        }
+        if(counter==3){
+            kazu2.text = "1"
+        }
+        if(counter==4){
+            keisu1.text = "1"
+        }
+        if(counter==5){
+            keisu2.text = "1"
+        }
+    }
+    @IBAction func number2(_ sender: Any) {
+        if(counter==1){
+            kazu1.text = "2"
+        }
+        if(counter==3){
+            kazu2.text = "2"
+        }
+        if(counter==4){
+            keisu1.text = "2"
+        }
+        if(counter==5){
+            keisu2.text = "2"
+        }
+    }
+    @IBAction func number3(_ sender: Any) {
+        if(counter==1){
+            kazu1.text = "3"
+        }
+        if(counter==3){
+            kazu2.text = "3"
+        }
+        if(counter==4){
+            keisu1.text = "3"
+        }
+        if(counter==5){
+            keisu2.text = "3"
+        }
+    }
+    @IBAction func number4(_ sender: Any) {
+        if(counter==1){
+            kazu1.text = "4"
+        }
+        if(counter==3){
+            kazu2.text = "4"
+        }
+        if(counter==4){
+            keisu1.text = "4"
+        }
+        if(counter==5){
+            keisu2.text = "4"
+        }
+    }
+    @IBAction func number5(_ sender: Any) {
+        if(counter==1){
+            kazu1.text = "5"
+        }
+        if(counter==3){
+            kazu2.text = "5"
+        }
+        if(counter==4){
+            keisu1.text = "5"
+        }
+        if(counter==5){
+            keisu2.text = "5"
+        }
+    }
+    @IBAction func number6(_ sender: Any) {
+        if(counter==1){
+            kazu1.text = "6"
+        }
+        if(counter==3){
+            kazu2.text = "6"
+        }
+        if(counter==4){
+            keisu1.text = "6"
+        }
+        if(counter==5){
+            keisu2.text = "6"
+        }
+    }
+    @IBAction func number7(_ sender: Any) {
+        if(counter==1){
+            keisu1.text = "7"
+        }
+        if(counter==3){
+            kazu2.text = "7"
+        }
+        if(counter==4){
+            keisu1.text = "7"
+        }
+        if(counter==5){
+            keisu2.text = "7"
+        }
+    }
+    @IBAction func number8(_ sender: Any) {
+        if(counter==1){
+            kazu1.text = "8"
+        }
+        if(counter==3){
+            kazu2.text = "8"
+        }
+        if(counter==4){
+            keisu1.text = "8"
+        }
+        if(counter==5){
+            keisu2.text = "8"
+        }
+    }
+    @IBAction func number9(_ sender: Any) {
+        if(counter==1){
+            kazu1.text = "9"
+        }
+        if(counter==3){
+            kazu2.text = "9"
+        }
+        if(counter==4){
+            keisu1.text = "9"
+        }
+        if(counter==5){
+            keisu2.text = "9"
+        }
+    }
+    
+    
+    
+    
+ 
     
     
     

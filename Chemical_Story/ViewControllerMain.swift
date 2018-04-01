@@ -27,6 +27,7 @@ class ViewControllerMain: UIViewController {
     @IBOutlet weak var get: UILabel!
     @IBOutlet weak var experiment: UIImageView!
     @IBOutlet weak var go_next: UIButton!
+    @IBOutlet weak var finger: UIImageView!
     
     
     
@@ -157,6 +158,8 @@ class ViewControllerMain: UIViewController {
         yourname.isHidden = true
         male.isHidden = true
         female.isHidden = true
+        
+        finger.isHidden = true
         num = num2
         gender = gender2
         you_name = you_name2
@@ -199,6 +202,8 @@ class ViewControllerMain: UIViewController {
             serif.text = "君が倒れているところを通りすがったもんでね\n君の名は？"
         }
         if(num==8){
+            get.isHidden = false
+            get.text = "名前を入力しよう"
             name.text = "???"
             serif.text = ""
             yourname.isHidden = false
@@ -250,19 +255,24 @@ class ViewControllerMain: UIViewController {
             choice1.isHidden = false
             choice2.isHidden = false
             choice3.isHidden = false
+            get.isHidden = false
+            get.text = "セリフを選択しよう"
         }
         if(num==42&&serif.text=="じゃあ···\nよろしくお願いします！"){
             name.text = "レオナルド"
             serif.text = "こちらこそよろしく。"
+            get.isHidden = true
         }
         if(num==42&&serif.text=="·········。"){
             name.text = "レオナルド"
             serif.text = "行く宛もないだろう？\nなら、一緒に来るんだ。"
+            get.isHidden = true
         }
         if(num==42&&serif.text=="一人で生きていく。"){
             name.text = "レオナルド"
             serif.text = "この世界はそんなに安全な場所でもないんだ。\n助けたのに勝手に死なれてもつまらない。\nとりあえずは一緒に来るんだ。"
         }
+        get.isHidden = true
         if(num==43){
             name.text = "レオナルド"
             serif.text = "じゃあ、まずは近くの海で海水を1Lほど取って来てくれ。\nほら、この容れ物を使いな。"
@@ -318,6 +328,7 @@ class ViewControllerMain: UIViewController {
             serif.text = "\n　　　　　　　　　　  　３０分後"
             background.image = UIImage(named: "black01.jpg")
             get.isHidden = false
+            get.text = "海水を手に入れた"
               audioPlayer3.pause()
         }
         if(num==52){
@@ -345,7 +356,7 @@ class ViewControllerMain: UIViewController {
         if(num==55){
             name.text = "レオナルド"
             get.isHidden = true
-            serif.text = "確かに。"
+            serif.text = "ありがとう。"
         }
         if(num==56){
             name.text = yourname.text
@@ -446,8 +457,9 @@ class ViewControllerMain: UIViewController {
         }
         if(num==79){
             name.text = yourname.text
-            serif.text = "うっ·····錬成····き····記憶····\nみ···水····錬成······。"
+            serif.text = "うっ·····錬成····き····記憶が····\nみ···水····錬成······。"
             item.isHidden = false
+            finger.isHidden = false
         }
         if(num==91){
             name.text = you_name
@@ -457,6 +469,7 @@ class ViewControllerMain: UIViewController {
             npc1.image = UIImage(named: "reo.png")
             serif.text = "······水を錬成！！"
             item.isHidden = true
+            finger.isHidden = true
             experiment.isHidden = false
             experiment.image = UIImage(named: "alchemic")
             background.image = UIImage(named: "dangeon1.jpg")
@@ -492,6 +505,7 @@ class ViewControllerMain: UIViewController {
             serif.text = "·········。"
             npc1.isHidden = true
             go_next.isHidden = false
+            finger.isHidden = false
         }
     }
 
@@ -504,8 +518,7 @@ class ViewControllerMain: UIViewController {
         male.isHidden = false
         female.isHidden = false
         yourname.isHidden = true
-        
-        
+        get.text = "性別を選択しよう"
     }
     @IBAction func male(_ sender: Any) {
         serif.text = "僕の名前は\(String(describing: name.text!))です"
@@ -514,6 +527,7 @@ class ViewControllerMain: UIViewController {
         gender = 1
         num = 19
         you.image = UIImage(named: "man_normal.png")
+        get.isHidden = true
     }
     @IBAction func female(_ sender: Any) {
         serif.text = "私の名前は\(String(describing: name.text!))です"
@@ -522,6 +536,7 @@ class ViewControllerMain: UIViewController {
         gender = 2
         num = 19
         you.image = UIImage(named: "woman_normal.png")
+        get.isHidden = true
     }
     
     
