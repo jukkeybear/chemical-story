@@ -1,7 +1,4 @@
 #include "HelloWorldScene.h"
-#include "ui/CocosGUI.h"
-using namespace cocos2d;
-using namespace ui;
 
 Scene* HelloWorld::createScene()
 {
@@ -28,9 +25,16 @@ bool HelloWorld::init()
     button->setAnchorPoint(Vec2(0.5, -0.5));
     button->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
     button->setTitleFontSize(18);
+    button->addTouchEventListener(transSelectScene);
 
     // add child nodes
     addChild(button);
     return true;
+}
+
+void HelloWorld::transSelectScene(Ref* reference, Widget::TouchEventType type){
+    if(type == Widget::TouchEventType::ENDED)
+    {
+    }
 }
 
