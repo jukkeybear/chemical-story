@@ -24,9 +24,10 @@ bool HelloWorld::init()
     // create button to move next scene
     Button* button = Button::create();
     button->setTouchEnabled(true);
-    button->setTitleText("click here to start");
+    button->setTitleText("Click here to start");
     button->setAnchorPoint(Vec2(0.5, -0.5));
     button->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
+    button->setTitleFontSize(18);
 
     // add child nodes
     addChild(button);
