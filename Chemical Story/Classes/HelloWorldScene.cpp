@@ -1,7 +1,7 @@
 #include "HelloWorldScene.h"
-#include "SimpleAudioEngine.h"
-
-USING_NS_CC;
+#include "ui/CocosGUI.h"
+using namespace cocos2d;
+using namespace ui;
 
 Scene* HelloWorld::createScene()
 {
@@ -17,6 +17,19 @@ static void problemLoading(const char* filename)
 bool HelloWorld::init()
 {
     if ( !Scene::init() ){  return false;  }
+
+    // important properties
+    auto visibleSize = Director::getInstance()->getVisibleSize();
+
+    // create button to move next scene
+    Button* button = Button::create();
+    button->setTouchEnabled(true);
+    button->setTitleText("click here to start");
+    button->setAnchorPoint(Vec2(0.5, -0.5));
+    button->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
+
+    // add child nodes
+    addChild(button);
     return true;
 }
 
