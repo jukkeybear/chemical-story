@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
+#include "SelectScene.hpp"
 using namespace cocos2d;
 using namespace ui;
 

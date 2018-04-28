@@ -35,6 +35,9 @@ bool HelloWorld::init()
 void HelloWorld::transSelectScene(Ref* reference, Widget::TouchEventType type){
     if(type == Widget::TouchEventType::ENDED)
     {
+        auto scene = SelectScene::createScene();
+        auto fade = TransitionFade::create(0.5, scene, Color3B::WHITE);
+        Director::getInstance()->replaceScene(fade);
     }
 }
 
